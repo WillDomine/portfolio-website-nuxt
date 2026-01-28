@@ -10,9 +10,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.13.0",
+    "@nuxtjs/i18n": "^10.2.1",
     "@vueuse/core": "^14.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "fonts": "^0.0.2",
     "lucide-vue-next": "^0.563.0",
     "nuxt": "^4.3.0",
     "reka-ui": "^2.7.0",

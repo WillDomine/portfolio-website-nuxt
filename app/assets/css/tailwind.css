@@ -114,7 +114,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+  :root {
+    --font-sans: "Inter", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
   }
 }
