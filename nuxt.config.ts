@@ -35,5 +35,11 @@ export default defineNuxtConfig({
       fallbackLocale: 'en',
     },
   },
-  modules: ['shadcn-nuxt', '@nuxtjs/i18n',],
+  fonts : {
+    families: [
+      {name: 'Inter'},
+      {name: 'Noto Sans JP'}
+    ],
+  },
+  modules: ['shadcn-nuxt', '@nuxtjs/i18n', '@nuxt/fonts'],
 })
