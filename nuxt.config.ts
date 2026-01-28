@@ -27,13 +27,15 @@ export default defineNuxtConfig({
         code: 'en',
         iso: 'en-US',
         file: 'en.json',
-        name: 'English'
+        name: 'English',
+        tag: 'en'
       },
       {
-        code: 'jp',
+        code: 'ja',
         iso: 'ja-JP',
-        file: 'jp.json',
-        name: '日本語'
+        file: 'ja.json',
+        name: '日本語',
+        tag: 'ja'
       }
     ],
     defaultLocale: 'en',
