@@ -19,10 +19,10 @@ const section = ref('home');
     <header
         class="h-15 w-full flex items-center justify-center bg-white/90 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
         <nav class="w-full px-6 flex justify-between">
-            <div class="flex space-x-4 sm:space-x-2">
+            <div class="flex space-x-2">
                 <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name">
                     <NuxtLink :to="item.href" class="flex items-center">
-                        <component :is="item.icon" class="h-4 w-4 sm:mr-2" />
+                        <component :is="item.icon" class="h-4 w-4" />
                         <span class="hidden sm:inline">{{ t(item.name) }}</span>
                     </NuxtLink>
                 </Button>
@@ -38,7 +38,7 @@ const section = ref('home');
                     ]">JP</button>
                 </div>
 
-                <Button variant="default" class="hidden sm:flex rounded-full w-28 px-6 transition-all duration-300">
+                <Button variant="default" class="hidden lg:flex rounded-full w-28 px-6 transition-all duration-300">
                     {{ t('contact') }}
                 </Button>
             </div>
