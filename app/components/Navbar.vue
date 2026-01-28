@@ -17,7 +17,7 @@ const section = ref('home');
 
 <template>
     <header
-        class="h-15 w-full flex items-center justify-center bg-white/90 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
+        class="h-15 w-full flex items-center justify-center bg-background/90 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
         <nav class="w-full px-6 flex justify-between">
             <div class="flex space-x-2">
                 <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name">
@@ -29,12 +29,12 @@ const section = ref('home');
             </div>
 
             <div class="flex items-center space-x-4">
-                <div class="flex items-center rounded-full border border-gray-300 bg-gray-50/50 p-1">
+                <div class="flex items-center rounded-full border border-input bg-muted/50 p-1">
                     <button @click="setLocale('en')" :class="['px-3 py-1 text-xs font-bold transition-all rounded-full',
-                        locale === 'en' ? 'bg-primary shadow-sm text-white' : 'text-gray-600 hover:text-gray-900'
+                        locale === 'en' ? 'bg-primary shadow-sm text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
                     ]">EN</button>
                     <button @click="setLocale('jp')" :class="['px-3 py-1 text-xs font-bold transition-all rounded-full',
-                        locale === 'jp' ? 'bg-primary shadow-sm text-white' : 'text-gray-600 hover:text-gray-900'
+                        locale === 'jp' ? 'bg-primary shadow-sm text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
                     ]">JP</button>
                 </div>
 
