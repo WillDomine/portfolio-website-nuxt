@@ -36,7 +36,6 @@
   --sidebar-accent-foreground: oklch(0.7049 0.1867 47.6044);
   --sidebar-border: oklch(0.9616 0.0017 67.8022);
   --sidebar-ring: oklch(0.7049 0.1867 47.6044);
-  --font-sans: Inter, 'Noto Sans JP', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: JetBrains Mono, monospace;
   --radius: 0.75rem;
@@ -91,7 +90,6 @@
   --sidebar-accent-foreground: oklch(0.7576 0.1590 55.9344);
   --sidebar-border: oklch(0.3741 0.0087 67.5582);
   --sidebar-ring: oklch(0.7576 0.1590 55.9344);
-  --font-sans: Inter, 'Noto Sans JP', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: JetBrains Mono, monospace;
   --radius: 0.75rem;
@@ -175,13 +173,18 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html[lang="jp"] {
+    line-height: 1.75;
+    word-break: break-all;
+    --main-font: "Noto Sans JP", sans-serif !important;
+  }
   :root {
-  --font-sans: "Noto Sans JP","Inter", sans-serif;    
+    --main-font: "Inter", sans-serif;    
     font-size: clamp(0.875rem, 0.75rem + 0.6vw, 1.1rem);
-
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--main-font);
     letter-spacing: var(--tracking-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

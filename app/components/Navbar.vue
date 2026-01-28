@@ -21,7 +21,7 @@ const section = ref('home');
         <nav class="w-full px-6 flex justify-between">
             <div class="flex space-x-2">
                 <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name">
-                    <NuxtLink :to="item.href" class="flex items-center">
+                    <NuxtLink :to="item.href" class="flex items-center" :class="section === item.name ? 'text-primary' : 'text-gray-600'">
                         <component :is="item.icon" class="h-4 w-4" />
                         <span class="hidden sm:inline">{{ t(item.name) }}</span>
                     </NuxtLink>

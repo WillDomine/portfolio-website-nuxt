@@ -5,8 +5,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app : {
     head : {
-      title: 'Portfolio'
-    }
+      title: 'Portfolio',
+      htmlAttrs: {
+        lang:'en'
+      }
+    },
+  },
+  experimental: {
+    inlineRouteRules: true
   },
   css: ['~/assets/css/tailwind.css'],
   vite: {
@@ -31,7 +37,7 @@ export default defineNuxtConfig({
       }
     ],
     defaultLocale: 'en',
-    strategy: 'prefix',
+    strategy: 'prefix_except_default',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
@@ -42,8 +48,8 @@ export default defineNuxtConfig({
   },
   fonts : {
     families: [
-      {name: 'Inter'},
-      {name: 'Noto Sans JP'}
+      {name: 'Inter', preload:true, weights:[400, 700]},
+      {name: 'Noto Sans JP', preload:true, weights:[400, 700]}
     ],
   },
   modules: ['shadcn-nuxt', '@nuxtjs/i18n', '@nuxt/fonts'],
