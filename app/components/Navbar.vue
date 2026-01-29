@@ -26,7 +26,7 @@ const isOpen = ref(false)
                             ? 'bg-primary text-primary-foreground shadow-md'
                             : 'hover:bg-muted'
                     ]">
-                    <NuxtLink :to="item.href" :aria-label="t(item.name)" class="flex items-center">
+                    <NuxtLink :to="item.href" :aria-label="t(item.name)" class="flex items-center justify-center">
                         <Icon :name="item.icon" mode="svg" />
                         <span class="hidden md:inline">{{ t(item.name) }}</span>
                     </NuxtLink>
