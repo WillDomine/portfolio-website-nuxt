@@ -20,7 +20,13 @@ const section = ref('home');
         class="h-15 w-full flex items-center justify-center bg-background/90 backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
         <nav class="w-full px-6 flex justify-between">
             <div class="flex space-x-2">
-                <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name" class="hover:bg-primary">
+                <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name"
+                    :class="[
+                        'transition-all duration-300',
+                        section === item.name
+                            ? 'bg-primary text-primary-foreground shadow-md'
+                            : 'hover:bg-muted'
+                    ]">
                     <NuxtLink :to="item.href" class="flex items-center">
                         <component :is="item.icon" class="h-4 w-4" />
                         <span class="hidden sm:inline">{{ t(item.name) }}</span>
