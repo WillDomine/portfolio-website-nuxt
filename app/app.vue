@@ -1,5 +1,15 @@
+<script setup>
+const { locale } = useI18n()
+useHead({
+  htmlAttrs: {
+    lang: computed(() => locale.value)
+  }
+})
+</script>
 <template>
   <div>
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
