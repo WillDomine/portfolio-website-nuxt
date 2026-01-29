@@ -62,7 +62,6 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
-      { name: "Inter", preload: true, weights: [400, 700] },
       { name: "Noto Sans JP", preload: true, weights: [400, 700] },
     ],
   },
