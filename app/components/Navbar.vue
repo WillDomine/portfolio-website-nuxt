@@ -17,7 +17,7 @@ const isOpen = ref(false)
 <template>
     <header
         class="h-15 w-full flex items-center justify-center bg-background/90 md:backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
-        <nav class="w-full xl:max-w-7xl px-6 flex justify-between">
+        <nav class="w-full max-w-500 mx-auto px-[5vw] flex justify-between">
             <div class="flex space-x-2">
                 <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name"
                     :class="[
@@ -34,7 +34,7 @@ const isOpen = ref(false)
             </div>
 
             <div class="flex items-center space-x-4">
-                <div class="flex items-center rounded-full border border-input bg-muted/50 p-1">
+                <div class="flex items-center rounded-full border border-muted bg-muted/50 p-1">
                     <button @click="setLocale('en')" :class="['px-3 py-1 text-xs font-bold transition-all rounded-full',
                         locale === 'en' ? 'bg-primary shadow-sm text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
                     ]" aria-label="Switch to English">EN</button>

@@ -165,21 +165,46 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  :root {
+    --main-font: "Inter", sans-serif;
+    font-size: calc(0.875rem + 0.25vw); 
+  }
+
   html[lang="ja"] {
-    line-height: 1.75;
-    word-break: break-all;
+    line-height: 1.8;
+    word-break: normal;
     --main-font: "Noto Sans JP", sans-serif !important;
   }
-  :root {
-    --main-font: "Inter", sans-serif;    
-    font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1.1rem);
-  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--main-font);
-    letter-spacing: var(--tracking-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/*Mobile*/
+@media (max-width: 768px) {
+  html { 
+    font-size: 14px; 
+  } 
+}
+
+/*Under 4k*/
+@media (min-width: 2560px) {
+  html { 
+    font-size: 20px; 
+  }
+}
+
+/*4k*/
+@media (min-width: 3840px) {
+  html { 
+    font-size: 24px; 
   }
 }
