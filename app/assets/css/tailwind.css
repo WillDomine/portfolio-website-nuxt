@@ -175,7 +175,7 @@
   html[lang="ja"] {
     line-height: 1.8;
     word-break: normal;
-    --main-font: "Noto Sans JP", sans-serif !important;
+    --main-font: "Noto Sans JP" !important;
   }
 
   body {

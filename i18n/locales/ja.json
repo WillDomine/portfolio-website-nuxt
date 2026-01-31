@@ -5,6 +5,16 @@
     "experience": "経歴",
     "skills": "スキル",
     "contact": "お問い合わせ",
-    "seo_description": "[名前]のポートフォリオサイトです。Vue.jsやNuxt.jsを中心としたモダンなWeb技術を専門とするフルスタックエンジニアです。最新のプロジェクト、技術スタック、職務経歴について紹介しています。"
-
+    "seo_description": "Will Domineのポートフォリオサイトです。Vue.jsやNuxt.jsを中心としたモダンなWeb技術を専門とするフルスタックエンジニアです。最新のプロジェクト、技術スタック、職務経歴について紹介しています。",
+    "hero": {
+        "role": "フルスタックデベロッパー",
+        "description": "モダンなUI、拡張性の高い設計、そして保守性の高いクリーンなコードを用いて、{highPerformance}を設計・構築しています。",
+        "high_performance": "高性能なWebアプリケーション",
+        "connect": "お問い合わせ",
+        "github": "GitHub",
+        "years_exp": "実務経験",
+        "projects_count": "プロジェクト数",
+        "passion": "情熱",
+        "status": "お仕事募集中"
+    }
 }

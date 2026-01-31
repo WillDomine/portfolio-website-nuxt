@@ -5,5 +5,16 @@
     "experience": "Experience",
     "skills": "Skills",
     "contact": "Contact",
-    "seo_description": "Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering."
+    "seo_description": "Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering.",
+    "hero": {
+        "role": "Full Stack Developer",
+        "description": "I design and build {highPerformance} with modern UI, scalable architecture, and clean maintainable code.",
+        "high_performance": "high-performance web applications",
+        "connect": "Let's Connect",
+        "github": "GitHub",
+        "years_exp": "Years Exp.",
+        "projects_count": "Projects",
+        "passion": "Passion",
+        "status": "Available for Work"
+    }
 }

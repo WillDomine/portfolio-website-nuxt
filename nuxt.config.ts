@@ -9,9 +9,13 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
-      meta:[
-        {name: 'description', content: 'Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering.'}
-      ]
+      meta: [
+        {
+          name: "description",
+          content:
+            "Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering.",
+        },
+      ],
     },
   },
   features: {
@@ -26,11 +30,11 @@ export default defineNuxtConfig({
     build: {
       cssCodeSplit: true,
       chunkSizeWarningLimit: 500,
-      sourcemap: false
+      sourcemap: false,
     },
     css: {
-      devSourcemap: false
-    }
+      devSourcemap: false,
+    },
   },
   i18n: {
     langDir: "locales",
@@ -61,20 +65,31 @@ export default defineNuxtConfig({
     },
   },
   fonts: {
-    families: [
-      { name: "Noto Sans JP", preload: true, weights: [400, 700] },
-    ],
+    families: [{ name: "Noto Sans JP", preload: true, weights: [400, 700] }],
   },
-  icon : {
+  icon: {
     clientBundle: {
-      scan:true
-    }
+      scan: true,
+    },
   },
   runtimeConfig: {
     githubToken: process.env.GITHUB_TOKEN,
-    public: {
-
-    }
   },
-  modules: ["shadcn-nuxt", "@nuxtjs/i18n", "@nuxt/fonts", '@nuxt/icon'],
+  nitro: {
+    routeRules: {
+      "/memoji_waving.jpg": {
+        headers: { "cache-control": "public, max-age=31536000, immutable" },
+      },
+      "/_nuxt/image/**": {
+        headers: { "cache-control": "public, max-age=31536000, immutable" },
+      },
+    },
+  },
+  modules: [
+    "shadcn-nuxt",
+    "@nuxtjs/i18n",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "@nuxt/image",
+  ],
 });
