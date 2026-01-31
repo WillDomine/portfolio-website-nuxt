@@ -76,6 +76,7 @@ export default defineNuxtConfig({
     githubToken: process.env.GITHUB_TOKEN,
   },
   nitro: {
+    preset: 'cloudflare-pages',
     routeRules: {
       "/memoji_waving.jpg": {
         headers: { "cache-control": "public, max-age=31536000, immutable" },
