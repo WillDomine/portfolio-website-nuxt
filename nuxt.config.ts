@@ -70,5 +70,11 @@ export default defineNuxtConfig({
       scan:true
     }
   },
+  runtimeConfig: {
+    githubToken: process.env.GITHUB_TOKEN,
+    public: {
+
+    }
+  },
   modules: ["shadcn-nuxt", "@nuxtjs/i18n", "@nuxt/fonts", '@nuxt/icon'],
 });
