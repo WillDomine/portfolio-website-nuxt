@@ -35,12 +35,12 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-4 mt-2">
-                    <a href="#"
+                    <a href="https://www.linkedin.com/in/will-domine/" target="_blank"
                         class="px-8 h-14 md:h-16 flex items-center justify-center gap-3 bg-primary text-primary-foreground rounded-2xl font-bold hover:scale-[1.03] active:scale-95 transition-all shadow-xl shadow-primary/20">
                         <Icon name="lucide:linkedin" class="size-5 md:size-6" />
                         {{ $t('hero.connect') }}
                     </a>
-                    <a href="#"
+                    <a href="https://www.github.com/WillDomine"
                         class="px-8 h-14 md:h-16 flex items-center justify-center gap-3 border border-border rounded-2xl font-semibold hover:bg-muted active:scale-95 transition-all">
                         <Icon name="lucide:github" class="size-5 md:size-6" />
                         {{ $t('hero.github') }}
