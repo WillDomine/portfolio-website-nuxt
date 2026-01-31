@@ -75,21 +75,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     githubToken: process.env.GITHUB_TOKEN,
   },
-  nitro: {
-    preset: 'cloudflare-pages',
-    output: {
-      dir: 'dist',
-      publicDir: 'dist/public'
-    },
-    routeRules: {
-      "/memoji_waving.jpg": {
-        headers: { "cache-control": "public, max-age=31536000, immutable" },
-      },
-      "/_nuxt/image/**": {
-        headers: { "cache-control": "public, max-age=31536000, immutable" },
-      },
-    },
-  },
   modules: [
     "shadcn-nuxt",
     "@nuxtjs/i18n",
