@@ -11,7 +11,6 @@ const navItems = [
 ]
 
 const section = ref('home');
-const isOpen = ref(false)
 </script>
 
 <template>

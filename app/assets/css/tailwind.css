@@ -168,6 +168,8 @@
 
   :root {
     font-size: calc(0.875rem + 0.25vw); 
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
   }
 
   html[lang="ja"] {
