@@ -77,6 +77,10 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'cloudflare-pages',
+    output: {
+      dir: 'dist',
+      publicDir: 'dist/public'
+    },
     routeRules: {
       "/memoji_waving.jpg": {
         headers: { "cache-control": "public, max-age=31536000, immutable" },
