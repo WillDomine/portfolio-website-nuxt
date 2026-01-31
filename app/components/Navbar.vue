@@ -7,7 +7,7 @@ const navItems = [
     { name: 'about', href: '#about', icon: 'lucide:user' },
     { name: 'projects', href: '#projects', icon: 'lucide:folder' },
     { name: 'experience', href: '#experience', icon: 'lucide:briefcase-business' },
-    { name: 'skills', href: '#skills', icon: 'lucide:code' },
+    { name: 'skills', href: '#skills', icon: 'lucide:code' }
 ]
 
 const section = ref('home');
@@ -43,7 +43,7 @@ const isOpen = ref(false)
                     ]" aria-label="Switch to Japanese">JP</button>
                 </div>
 
-                
+
 
                 <Button variant="default" class="hidden lg:flex rounded-full w-28 px-6 transition-all duration-300">
                     {{ t('contact') }}
@@ -51,5 +51,8 @@ const isOpen = ref(false)
             </div>
         </nav>
     </header>
+    <Button variant="default" aria-label="contact" class="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl z-50 lg:hidden">
+        <Icon name="lucide:mail" class="text-xl" />
+    </Button>
 
 </template>
