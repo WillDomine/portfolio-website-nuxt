@@ -1,12 +1,12 @@
 import { Project } from "../utils/Project";
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
     const config = useRuntimeConfig();
     const username = "WillDomine"
 
-    const data = await $fetch('https://api.github.com/search/repositories', {
+    const data: any = await $fetch('https://api.github.com/search/repositories', {
         params: {
-            q:`user:${username} topic:portfolio`,
+            q: `user:${username} topic:portfolio`,
             sort: 'updated'
         },
         headers: {
@@ -15,5 +15,23 @@ export default defineEventHandler(async (event) => {
         }
     });
 
-    return (data as any).items.map((repo: any) => new Project(repo))
+    const items = data.items || [];
+
+    const projects = await Promise.all(items.map(async (repo: any) => {
+        let metadata = null;
+
+        try {
+            const rawUrl = `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch}/portfolio.json`;
+            metadata = await $fetch(rawUrl).catch(() => null);
+        } catch (e) {}
+
+        return new Project(repo, metadata);
+    }));
+
+    return projects;
+}, {
+    maxAge: 60 * 60, //1 hour
+    swr: true, //Give old cache data while looking for new.
+    name: 'github-projects',
+    getKey: () => 'all'
 })
