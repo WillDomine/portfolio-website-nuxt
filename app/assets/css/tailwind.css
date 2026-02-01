@@ -167,7 +167,7 @@
   }
 
   :root {
-    font-size: calc(0.875rem + 0.25vw); 
+    font-size: 16px; 
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
   }
@@ -189,23 +189,30 @@
   }
 }
 
-/*Mobile*/
+/* Mobile: Smaller text */
 @media (max-width: 768px) {
   html { 
     font-size: 14px; 
   } 
 }
 
-/*Under 4k*/
-@media (min-width: 2560px) {
-  html { 
-    font-size: 20px; 
+/* Macbooks */
+@media (min-width: 1024px) and (max-height: 850px) {
+  html {
+    font-size: 14px; 
   }
 }
 
-/*4k*/
-@media (min-width: 3840px) {
+/* Wide Desktop / 1440p */
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* 4K Monitors */
+@media (min-width: 2560px) {
   html { 
-    font-size: 24px; 
+    font-size: 22px; 
   }
 }

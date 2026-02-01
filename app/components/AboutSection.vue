@@ -5,16 +5,17 @@ const age = calculateTimeSince('2005-01-11')
 
 <template>
     <section
-        class="mx-auto w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-        <div class="flex flex-col gap-8 order-1">
-            <div class="space-y-4">
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight">
+        class="mx-auto w-full max-w-360 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 2xl:gap-32 items-center"
+    >
+        <div class="flex flex-col gap-4 lg:gap-6 2xl:gap-8 order-1">
+            <div class="space-y-3 2xl:space-y-6">
+                <h2 class="text-3xl md:text-4xl 2xl:text-6xl font-black tracking-tight">
                     {{ $t('about_section.title') }}
                 </h2>
                 <div class="h-1.5 w-20 bg-primary rounded-full"></div>
             </div>
 
-            <div class="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
+            <div class="space-y-4 text-muted-foreground text-base md:text-lg 2xl:text-xl leading-relaxed">
                 <p>
                     <i18n-t keypath="about_section.summary" scope="global">
                         <template #age>
@@ -29,29 +30,29 @@ const age = calculateTimeSince('2005-01-11')
             </div>
 
             <div class="space-y-4">
-                <h3 class="text-sm font-black uppercase tracking-widest text-primary">{{
+                <h3 class="text-xs md:text-sm font-black uppercase tracking-widest text-primary">{{
                     $t('about_section.achievements_label') }}
                 </h3>
                 <div class="grid gap-3">
-                    <div class="flex gap-4 p-4 rounded-xl border border-border bg-card/30">
-                        <Icon name="lucide:zap" class="text-primary size-6 shrink-0" />
+                    <div class="flex gap-4 p-3 md:p-4 rounded-xl border border-border bg-card/30">
+                        <Icon name="lucide:zap" class="text-primary size-5 md:size-6 shrink-0" />
                         <div>
-                            <p class="font-bold text-foreground">{{ $t('about_section.cpp_project_title') }}</p>
-                            <p class="text-sm text-muted-foreground">{{ $t('about_section.cpp_project_desc') }}</p>
+                            <p class="font-bold text-foreground text-sm md:text-base">{{ $t('about_section.cpp_project_title') }}</p>
+                            <p class="text-xs md:text-sm text-muted-foreground">{{ $t('about_section.cpp_project_desc') }}</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 p-4 rounded-xl border border-border bg-card/30">
-                        <Icon name="lucide:layers" class="text-primary size-6 shrink-0" />
+                    <div class="flex gap-4 p-3 md:p-4 rounded-xl border border-border bg-card/30">
+                        <Icon name="lucide:layers" class="text-primary size-5 md:size-6 shrink-0" />
                         <div>
-                            <p class="font-bold text-foreground">{{ $t('about_section.go_project_title') }}</p>
-                            <p class="text-sm text-muted-foreground">{{ $t('about_section.go_project_desc') }}</p>
+                            <p class="font-bold text-foreground text-sm md:text-base">{{ $t('about_section.go_project_title') }}</p>
+                            <p class="text-xs md:text-sm text-muted-foreground">{{ $t('about_section.go_project_desc') }}</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 p-4 rounded-xl border border-border bg-primary/5">
-                        <Icon name="lucide:languages" class="text-primary size-6 shrink-0" />
+                    <div class="flex gap-4 p-3 md:p-4 rounded-xl border border-border bg-primary/5">
+                        <Icon name="lucide:languages" class="text-primary size-5 md:size-6 shrink-0" />
                         <div>
-                            <p class="font-bold text-foreground">{{ $t('about_section.lang_title') }}</p>
-                            <p class="text-sm text-muted-foreground">{{ $t('about_section.lang_desc') }}</p>
+                            <p class="font-bold text-foreground text-sm md:text-base">{{ $t('about_section.lang_title') }}</p>
+                            <p class="text-xs md:text-sm text-muted-foreground">{{ $t('about_section.lang_desc') }}</p>
                         </div>
                     </div>
                 </div>
@@ -61,24 +62,25 @@ const age = calculateTimeSince('2005-01-11')
                 <div>
                     <p class="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{{
                         $t('about_section.edu_label') }}</p>
-                    <p class="font-bold text-foreground">Computer Science B.S.</p>
+                    <p class="font-bold text-foreground text-sm md:text-base">Computer Science B.S.</p>
                 </div>
                 <div class="h-8 w-px bg-border hidden sm:block"></div>
                 <div>
                     <p class="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{{
                         $t('about_section.grad_label') }}</p>
-                    <p class="font-bold text-primary">{{ $t('about_section.grad_date') }}</p>
+                    <p class="font-bold text-primary text-sm md:text-base">{{ $t('about_section.grad_date') }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="relative order-2 flex justify-center pb-20 sm:pb-0">
+        <div class="relative order-2 flex justify-center pb-10 sm:pb-0">
             <div class="absolute inset-0 flex justify-center items-center">
                 <div class="w-[80%] aspect-square bg-primary/10 blur-[60px] md:blur-[100px] rounded-full"></div>
             </div>
 
             <div
-                class="relative w-full max-w-md bg-card border border-border rounded-3xl p-6 shadow-2xl overflow-hidden group">
+                class="relative w-full max-w-md bg-card border border-border rounded-3xl p-6 shadow-2xl overflow-hidden group"
+            >
                 <div class="flex items-center gap-2 mb-6">
                     <div class="size-3 rounded-full bg-destructive/50"></div>
                     <div class="size-3 rounded-full bg-yellow-500/50"></div>
