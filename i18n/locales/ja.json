@@ -1,20 +1,37 @@
 {
-    "home": "ホーム",
-    "about": "プロフィール",
-    "projects": "プロジェクト",
-    "experience": "経歴",
-    "skills": "スキル",
-    "contact": "お問い合わせ",
-    "seo_description": "Will Domineのポートフォリオサイトです。Vue.jsやNuxt.jsを中心としたモダンなWeb技術を専門とするフルスタックエンジニアです。最新のプロジェクト、技術スタック、職務経歴について紹介しています。",
-    "hero": {
-        "role": "フルスタックデベロッパー",
-        "description": "モダンなUI、拡張性の高い設計、そして保守性の高いクリーンなコードを用いて、{highPerformance}を設計・構築しています。",
-        "high_performance": "高性能なWebアプリケーション",
-        "connect": "お問い合わせ",
-        "github": "GitHub",
-        "years_exp": "実務経験",
-        "projects_count": "プロジェクト数",
-        "passion": "情熱",
-        "status": "お仕事募集中"
-    }
+  "home": "ホーム",
+  "about": "プロフィール",
+  "projects": "プロジェクト",
+  "experience": "経歴",
+  "skills": "スキル",
+  "contact": "お問い合わせ",
+  "seo_description": "Will Domineのポートフォリオサイトです。Vue.jsやNuxt.jsを中心としたモダンなWeb技術を専門とするフルスタックエンジニアです。最新のプロジェクト、技術スタック、職務経歴について紹介しています。",
+  "home_section": {
+    "role": "フルスタック & システムエンジニア",
+    "description": "{highPerformance}とモダンなユーザー体験の架け橋となります。低レイヤーからフロントエンドまで、すべての層においてパフォーマンスを追求した開発を行っています。",
+    "high_performance": "高スループットなバックエンド",
+    "connect": "お問い合わせ",
+    "github": "GitHub",
+    "email": "メール",
+    "years_exp": "実務経験",
+    "months_exp": "ヶ月の経験",
+    "projects_count": "プロジェクト数",
+    "passion": "情熱",
+    "status": "お仕事募集中"
+  },
+  "about_section": {
+    "title": "自己紹介",
+    "summary": "{age}歳のエンジニアとして、{highlight}を専門としています。低レイテンシなインフラストラクチャとモダンなユーザー体験の架け橋となり、すべての層でパフォーマンスを追求したエンドツーエンドのソリューションを構築しています。",
+    "summary_highlight": "フルスタック・システムエンジニアリング",
+    "achievements_label": "主な実績",
+    "cpp_project_title": "C++ 高性能I/O制御",
+    "cpp_project_desc": "io_uringとFlatBuffersを活用し、2M+ PPSのスループットを実現。",
+    "go_project_title": "Go マイクロサービス最適化",
+    "go_project_desc": "Protocol Buffersとビット演算による高速なサービスルーティングを実装。",
+    "lang_title": "日本語学習",
+    "lang_desc": "日本での実務を見据え、『初級日本語 げんき I』を用いて基礎的なコミュニケーション能力を習得中です。",
+    "edu_label": "学歴",
+    "grad_label": "状況",
+    "grad_date": "2026年12月 卒業予定"
+  }
 }

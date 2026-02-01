@@ -42,15 +42,15 @@ const section = ref('home');
                     ]" aria-label="Switch to Japanese">JP</button>
                 </div>
 
-
-
                 <Button variant="default" class="hidden lg:flex rounded-full w-28 px-6 transition-all duration-300">
                     {{ t('contact') }}
                 </Button>
+
             </div>
         </nav>
     </header>
-    <Button variant="default" aria-label="contact" class="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl z-50 lg:hidden">
+    <Button variant="default" aria-label="contact"
+        class="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl z-50 lg:hidden font-bold">
         <Icon name="lucide:mail" class="text-xl" />
     </Button>
 

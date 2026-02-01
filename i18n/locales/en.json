@@ -1,20 +1,37 @@
 {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "experience": "Experience",
-    "skills": "Skills",
-    "contact": "Contact",
-    "seo_description": "Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering.",
-    "hero": {
-        "role": "Full Stack Developer",
-        "description": "I design and build {highPerformance} with modern UI, scalable architecture, and clean maintainable code.",
-        "high_performance": "high-performance web applications",
-        "connect": "Let's Connect",
-        "github": "GitHub",
-        "years_exp": "Years Exp.",
-        "projects_count": "Projects",
-        "passion": "Passion",
-        "status": "Available for Work"
-    }
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "experience": "Experience",
+  "skills": "Skills",
+  "contact": "Contact",
+  "seo_description": "Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering.",
+  "home_section": {
+    "role": "Full-Stack & Systems Engineer",
+    "description": "Bridging the gap between {highPerformance} and modern user experiences. I build end-to-end solutions with a focus on performance at every layer.",
+    "high_performance": "high-throughput backends",
+    "connect": "Let's Connect",
+    "github": "GitHub",
+    "email": "Email",
+    "years_exp": "Years Exp.",
+    "months_exp": "Months Exp.",
+    "projects_count": "Projects",
+    "passion": "Passion",
+    "status": "Available for Work"
+  },
+  "about_section": {
+    "title": "About Me",
+    "summary": "I am a {age}-year-old developer specializing in {highlight}. I bridge the gap between low-latency infrastructure and modern user experiences, building end-to-end solutions that prioritize performance at every layer.",
+    "summary_highlight": "full-stack systems engineering",
+    "achievements_label": "Key Achievements",
+    "cpp_project_title": "C++ High-Performance I/O",
+    "cpp_project_desc": "Utilized io_uring and FlatBuffers to achieve over 2M packets per second (PPS).",
+    "go_project_title": "Go Microservices Optimization",
+    "go_project_desc": "Implemented Protocol Buffers and bitwise filtering for instant service routing.",
+    "lang_title": "Japanese Language Study",
+    "lang_desc": "Currently self-studying with the Genki I curriculum to build a strong foundation for professional communication.",
+    "edu_label": "Education",
+    "grad_label": "Status",
+    "grad_date": "Graduating Dec 2026"
+  }
 }
