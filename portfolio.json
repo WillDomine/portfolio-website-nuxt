@@ -1,0 +1,9 @@
+{
+  "title": "Portfolio Website",
+  "description": {
+    "en": "A fully responsive portfolio built with Nuxt 3, featuring internationalization and high-performance animations.",
+    "ja": "Nuxt 3で構築された完全レスポンシブなポートフォリオ。国際化対応と高性能なアニメーションを特徴としています。"
+  },
+  "demoUrl": "https://willdomine.com",
+  "tags": ["Nuxt 3", "Vue 3", "TypeScript", "Tailwind CSS", "i18n"]
+}

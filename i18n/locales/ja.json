@@ -33,5 +33,9 @@
     "edu_label": "学歴",
     "grad_label": "状況",
     "grad_date": "2026年12月 卒業予定"
+  },
+  "projects_section": {
+    "subtitle": "高性能システムとモダンなWebアーキテクチャを探求するプロジェクトの数々。",
+    "error": "プロジェクトの読み込みに失敗しました。"
   }
 }

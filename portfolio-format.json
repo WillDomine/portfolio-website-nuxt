@@ -1,0 +1,10 @@
+{
+  "title": "Project Title",
+  "description": {
+    "en": "English description of the project.",
+    "ja": "プロジェクトの日本語説明。"
+  },
+  "image": "path/to/image.png",
+  "demoUrl": "https://your-demo-link.com",
+  "tags": ["Vue", "Nuxt", "TypeScript"]
+}

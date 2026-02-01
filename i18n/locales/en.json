@@ -33,5 +33,9 @@
     "edu_label": "Education",
     "grad_label": "Status",
     "grad_date": "Graduating Dec 2026"
+  },
+  "projects_section": {
+    "subtitle": "A selection of projects exploring high-performance systems and modern web architecture.",
+    "error": "Failed to load projects."
   }
 }
