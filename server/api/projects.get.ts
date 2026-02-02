@@ -1,37 +1,81 @@
 import { Project } from "../utils/Project";
 
-export default defineCachedEventHandler(async (event) => {
-    const config = useRuntimeConfig();
-    const username = "WillDomine"
+export default defineCachedEventHandler(async () => {
+  const config = useRuntimeConfig();
 
-    const data: any = await $fetch('https://api.github.com/search/repositories', {
-        params: {
-            q: `user:${username} topic:portfolio`,
-            sort: 'updated'
-        },
-        headers: {
-            'Authorization': `Bearer ${config.githubToken}`,
-            'User-Agent': 'Portfolio-App'
+  const username = "WillDomine";
+
+  if (!config.githubToken) {
+    console.error("Missing GITHUB TOKEN");
+    return [];
+  }
+
+  const query = `
+    query ($searchQuery: String!) {
+      search(query: $searchQuery, type: REPOSITORY, first: 20) {
+        nodes {
+          ... on Repository {
+            id
+            name
+            description
+            url
+            homepageUrl
+            stargazerCount
+            owner { login }
+            primaryLanguage { name }
+            repositoryTopics(first: 10) {
+              nodes {
+                topic { name }
+              }
+            }
+            object(expression: "HEAD:portfolio.json") {
+              ... on Blob {
+                text
+              }
+            }
+          }
         }
+      }
+    }
+  `;
+
+  const variables = {
+    searchQuery: `user:${username} topic:portfolio`
+  };
+
+  try {
+    const response: any = await $fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${config.githubToken}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json"
+      },
+      body: {
+        query,
+        variables
+      }
     });
 
-    const items = data.items || [];
+    if (response.errors) {
+      console.error("GitHub GraphQL Errors:", response.errors);
+      return [];
+    }
 
-    const projects = await Promise.all(items.map(async (repo: any) => {
-        let metadata = null;
+    const nodes = response?.data?.search?.nodes ?? [];
 
-        try {
-            const rawUrl = `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch}/portfolio.json`;
-            metadata = await $fetch(rawUrl).catch(() => null);
-        } catch (e) {}
+    return nodes
+      .filter(Boolean)
+      .map((repo: any) => new Project(repo));
 
-        return new Project(repo, metadata);
-    }));
+  } catch (err) {
+    console.error("GitHub API FAILED:", err);
+    return [];
+  }
 
-    return projects;
 }, {
-    maxAge: 60 * 60, //1 hour
-    swr: true, //Give old cache data while looking for new.
-    name: 'github-projects',
-    getKey: () => 'all'
-})
+  maxAge: 60 * 60, //1 hour
+  swr: true,
+  name: "github-projects",
+  getKey: () => "all"
+});
