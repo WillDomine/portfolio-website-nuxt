@@ -23,11 +23,11 @@ const { data: projects, pending, error } = await useFetch('/api/projects', {
 
             <div class="mb-6 md:mb-10 flex flex-col gap-6">
                 <div class="space-y-3 2xl:space-y-6">
-                <h2 class="text-3xl md:text-4xl 2xl:text-6xl font-black tracking-tight">
-                    {{ $t('projects') }}
-                </h2>
-                <div class="h-1.5 w-20 bg-primary rounded-full"></div>
-            </div>
+                    <h2 class="text-3xl md:text-4xl 2xl:text-6xl font-black tracking-tight">
+                        {{ $t('projects') }}
+                    </h2>
+                    <div class="h-1.5 w-20 bg-primary rounded-full"></div>
+                </div>
                 <p class="text-muted-foreground text-base md:text-lg 2xl:text-xl max-w-2xl leading-relaxed">
                     {{ $t('projects_section.subtitle') }}
                 </p>
@@ -69,35 +69,34 @@ const { data: projects, pending, error } = await useFetch('/api/projects', {
                         </div>
                     </div>
 
-                    <div class="p-6 md:p-8 flex flex-col grow gap-6">
-                        <div class="space-y-3">
+                    <div class="p-4 md:p-5 flex flex-col grow gap-3">
+                        <div class="space-y-2">
                             <h3
-                                class="text-xl md:text-2xl font-black tracking-tight group-hover:text-primary transition-colors duration-300">
+                                class="text-lg md:text-xl font-black tracking-tight group-hover:text-primary transition-colors duration-300">
                                 {{ project.name }}
                             </h3>
 
-                            <p class="text-muted-foreground text-sm md:text-base leading-relaxed line-clamp-3">
+                            <p class="text-muted-foreground text-xs md:text-sm leading-relaxed line-clamp-3">
                                 {{ project.description[locale] || project.description['en'] }}
                             </p>
                         </div>
 
-                        <div class="mt-auto space-y-6">
-                            <div class="flex flex-wrap gap-2">
-                                <span v-for="topic in project.topics.slice(0, 4)" :key="topic"
-                                    class="text-[10px] font-black uppercase tracking-widest bg-primary/5 text-primary border border-primary/10 px-2.5 py-1 rounded-md">
+                        <div class="mt-auto space-y-3">
+                            <div class="flex flex-wrap gap-1.5"> <span v-for="topic in project.topics.slice(0, 4)"
+                                    :key="topic"
+                                    class="text-[10px] font-black uppercase tracking-widest bg-primary/5 text-primary border border-primary/10 px-2 py-0.5 rounded-md">
                                     {{ topic }}
                                 </span>
                             </div>
 
-                            <div class="flex gap-3 pt-2">
-                                <a v-if="project.url" :href="project.url" target="_blank"
-                                    class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20">
-                                    <Icon name="lucide:github" class="size-4" />
+                            <div class="flex gap-2 pt-1"> <a v-if="project.url" :href="project.url" target="_blank"
+                                    class="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20">
+                                    <Icon name="lucide:github" class="size-3.5" />
                                     GitHub
                                 </a>
                                 <a v-if="project.homepage" :href="project.homepage" target="_blank"
-                                    class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold border border-border bg-background hover:bg-muted hover:text-foreground hover:scale-[1.02] active:scale-95 transition-all">
-                                    <Icon name="lucide:external-link" class="size-4" />
+                                    class="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold border border-border bg-background hover:bg-muted hover:text-foreground hover:scale-[1.02] active:scale-95 transition-all">
+                                    <Icon name="lucide:external-link" class="size-3.5" />
                                     Demo
                                 </a>
                             </div>
