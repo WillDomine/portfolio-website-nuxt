@@ -57,8 +57,8 @@ const { data: projects, pending, error } = await useFetch('/api/projects', {
                             <Icon name="lucide:folder-code" class="size-12 text-primary/20" />
                         </div>
                         <NuxtImg v-else :src="project.image"
-                            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
-                            loading="lazy" />
+                            class="w-full h-full object-cover rounded-2xl md:rounded-3xl" format="webp" quality="90"
+                            loading="lazy" :alt="project.name"/>
 
                         <div class="absolute top-4 right-4 flex gap-2">
                             <div v-if="project.stars > 0"

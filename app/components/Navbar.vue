@@ -28,7 +28,9 @@ const startObserver = () => {
     observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                section.value = entry.target.id;
+                const newSection = entry.target.id;
+                section.value = newSection;
+                history.replaceState(null, '', `#${newSection}`)
             }
         });
     }, { 
@@ -44,7 +46,7 @@ const startObserver = () => {
     return true; // Successfully started
 };
 
-
+//Retries incase failture
 const { pause, resume } = useIntervalFn(() => {
     const success = startObserver();
     if (success) {
@@ -86,7 +88,7 @@ onUnmounted(() => {
                     ]">
                     <NuxtLink :to="item.href" :aria-label="t(item.name)" class="flex items-center justify-center">
                         <Icon :name="item.icon" mode="svg" />
-                        <span class="hidden md:inline">{{ t(item.name) }}</span>
+                        <span class="hidden md:inline font-semibold">{{ t(item.name) }}</span>
                     </NuxtLink>
                 </Button>
             </div>
@@ -101,14 +103,15 @@ onUnmounted(() => {
                     ]" aria-label="Switch to Japanese">JP</button>
                 </div>
 
-                <Button variant="default" class="hidden lg:flex w-24 rounded-full px-6 transition-all duration-300">
+                <Button variant="default" :aria-label="t('resume')" class="hidden lg:flex w-28 rounded-full font-bold px-6 transition-all duration-300">
+                    <Icon name="lucide:file-text" mode="svg" />
                     {{ t('resume') }}
                 </Button>
             </div>
         </nav>
     </header>
-    <Button variant="default" aria-label="contact"
+    <Button variant="default" :aria-label="t('resume')" 
         class="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl z-50 lg:hidden font-bold">
-        <Icon name="lucide:mail" class="text-xl" />
+        <Icon name="lucide:file-text" class="text-xl" />
     </Button>
 </template>

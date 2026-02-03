@@ -21,10 +21,6 @@ const age = calculateTimeSince('2005-01-11')
                         <template #age>
                             <span class="text-foreground font-semibold">{{ age.years }}</span>
                         </template>
-                        <template #highlight>
-                            <span class="text-foreground font-semibold">{{ $t('about_section.summary_highlight')
-                                }}</span>
-                        </template>
                     </i18n-t>
                 </p>
             </div>

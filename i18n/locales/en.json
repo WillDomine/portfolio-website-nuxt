@@ -20,8 +20,7 @@
   },
   "about_section": {
     "title": "About Me",
-    "summary": "I am a {age}-year-old developer specializing in {highlight}. I bridge the gap between low-latency infrastructure and modern user experiences, building end-to-end solutions that prioritize performance at every layer.",
-    "summary_highlight": "full-stack systems engineering",
+    "summary": "I am a {age}-year-old developer who enjoys the logic behind complex systems. Whether it's shaving milliseconds off a backend process or ensuring a smooth frontend interaction, I love the satisfaction of finding the right solution to a hard problem.",
     "achievements_label": "Key Achievements",
     "cpp_project_title": "C++ High-Performance I/O",
     "cpp_project_desc": "Utilized io_uring and FlatBuffers to achieve over 2M packets per second (PPS).",
