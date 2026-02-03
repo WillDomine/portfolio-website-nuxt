@@ -3,7 +3,6 @@ const { locale } = useI18n()
 
 const { data: projects, pending, error } = await useFetch('/api/projects', {
     lazy: true,
-    server: false
 })
 </script>
 
