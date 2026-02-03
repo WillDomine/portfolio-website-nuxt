@@ -75,6 +75,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     githubToken: process.env.GITHUB_TOKEN,
   },
+  nitro: {
+    preset: 'cloudflare-pages'
+  },
   modules: [
     "shadcn-nuxt",
     "@nuxtjs/i18n",
