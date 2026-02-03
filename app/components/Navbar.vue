@@ -1,22 +1,83 @@
 <script setup lang="ts">
 import Button from './ui/button/Button.vue';
+import { useIntervalFn } from '@vueuse/core';
+
+const router = useRouter(); 
 const { t, locale, setLocale } = useI18n();
 
 const navItems = [
-    { name: 'home', href: '#', icon: 'lucide:home' },
+    { name: 'home', href: '#home', icon: 'lucide:home' },
     { name: 'about', href: '#about', icon: 'lucide:user' },
     { name: 'projects', href: '#projects', icon: 'lucide:folder' },
 ]
 
 const section = ref('home');
+let observer: IntersectionObserver | null = null;
+
+//Starts the navigation observer
+const startObserver = () => {
+    //Removed old observer
+    if (observer) observer.disconnect();
+
+    const targets = navItems.map(item => document.getElementById(item.name));
+    const allFound = targets.every(el => el !== null);
+
+    if (!allFound) return false; // Not ready yet
+
+    //New Observer
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                section.value = entry.target.id;
+            }
+        });
+    }, { 
+        threshold: 0.5,
+        rootMargin: "-10% 0px -10% 0px"
+    });
+
+    //Observe elements
+    targets.forEach(el => {
+        if (el && observer) observer.observe(el);
+    });
+
+    return true; // Successfully started
+};
+
+
+const { pause, resume } = useIntervalFn(() => {
+    const success = startObserver();
+    if (success) {
+        pause();
+    }
+}, 100, { immediate: false });
+
+onMounted(() => {
+    if (router.currentRoute.value.hash) {
+        const hash = router.currentRoute.value.hash.replace('#', '');
+        if (navItems.some(i => i.name === hash)) {
+            section.value = hash;
+        }
+    }
+    resume();
+});
+
+//Watch language changes
+watch(locale, () => {
+    resume();
+});
+
+onUnmounted(() => {
+    if (observer) observer.disconnect();
+    pause();
+});
 </script>
 
 <template>
-    <header
-        class="h-15 w-full flex items-center justify-center bg-background/90 md:backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
+    <header class="h-15 w-full flex items-center justify-center bg-background/90 md:backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
         <nav class="w-full max-w-500 mx-auto px-[4vw] flex justify-between">
             <div class="flex space-x-2">
-                <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name"
+                <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child 
                     :class="[
                         'transition-all duration-300',
                         section === item.name
@@ -43,7 +104,6 @@ const section = ref('home');
                 <Button variant="default" class="hidden lg:flex w-24 rounded-full px-6 transition-all duration-300">
                     {{ t('resume') }}
                 </Button>
-
             </div>
         </nav>
     </header>
@@ -51,5 +111,4 @@ const section = ref('home');
         class="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl z-50 lg:hidden font-bold">
         <Icon name="lucide:mail" class="text-xl" />
     </Button>
-
 </template>

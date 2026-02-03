@@ -4,6 +4,7 @@
     "en": "A high-performance, edge-deployed portfolio built with Nuxt 3. Dynamically syncs project data using GitHub's GraphQL API and features real-time localization.",
     "ja": "Nuxt 3とGitHub GraphQL APIを使用した高性能ポートフォリオ。Cloudflare Edgeでデプロイされ、プロジェクトデータを動的に同期します。"
   },
+  "image":"portfolio_img.png",
   "demoUrl": "https://willdomine.com",
   "tags": ["Nuxt 3", "TypeScript", "GraphQL", "Cloudflare", "i18n"]
 }
