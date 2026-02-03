@@ -170,11 +170,6 @@
     font-size: 16px; 
   }
 
-  html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
-
   html[lang="ja"] {
     line-height: 1.8;
     word-break: normal;
