@@ -19,7 +19,7 @@ const { data: projects, pending, error } = await useFetch('/api/projects', {
             </div>
         </div>
 
-        <div class="mx-auto w-full max-w-360 px-6 md:px-12 h-full flex flex-col justify-center">
+        <div class="mx-auto w-full max-w-360 px-[4vw] h-full flex flex-col justify-center">
 
             <div class="mb-6 md:mb-10 flex flex-col gap-6">
                 <div class="space-y-3 2xl:space-y-6">

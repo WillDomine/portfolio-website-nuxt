@@ -2,8 +2,7 @@
   "home": "ホーム",
   "about": "プロフィール",
   "projects": "プロジェクト",
-  "experience": "経歴",
-  "skills": "スキル",
+  "resume": "履歴書",
   "contact": "お問い合わせ",
   "seo_description": "Will Domineのポートフォリオサイトです。Vue.jsやNuxt.jsを中心としたモダンなWeb技術を専門とするフルスタックエンジニアです。最新のプロジェクト、技術スタック、職務経歴について紹介しています。",
   "home_section": {

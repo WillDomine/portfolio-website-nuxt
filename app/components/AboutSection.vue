@@ -5,7 +5,7 @@ const age = calculateTimeSince('2005-01-11')
 
 <template>
     <section
-        class="mx-auto w-full max-w-360 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 2xl:gap-32 items-center"
+        class="mx-auto w-full max-w-360 px-[4vw] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 2xl:gap-32 items-center"
     >
         <div class="flex flex-col gap-4 lg:gap-6 2xl:gap-8 order-1">
             <div class="space-y-3 2xl:space-y-6">

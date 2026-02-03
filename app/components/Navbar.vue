@@ -6,8 +6,6 @@ const navItems = [
     { name: 'home', href: '#', icon: 'lucide:home' },
     { name: 'about', href: '#about', icon: 'lucide:user' },
     { name: 'projects', href: '#projects', icon: 'lucide:folder' },
-    { name: 'experience', href: '#experience', icon: 'lucide:briefcase-business' },
-    { name: 'skills', href: '#skills', icon: 'lucide:code' }
 ]
 
 const section = ref('home');
@@ -16,7 +14,7 @@ const section = ref('home');
 <template>
     <header
         class="h-15 w-full flex items-center justify-center bg-background/90 md:backdrop-blur-md border-b border-gray-200 fixed top-0 left-0 z-50 transition-all duration-500">
-        <nav class="w-full max-w-500 mx-auto px-[5vw] flex justify-between">
+        <nav class="w-full max-w-500 mx-auto px-[4vw] flex justify-between">
             <div class="flex space-x-2">
                 <Button v-for="item in navItems" :key="item.name" variant="ghost" as-child @click="section = item.name"
                     :class="[
@@ -42,8 +40,8 @@ const section = ref('home');
                     ]" aria-label="Switch to Japanese">JP</button>
                 </div>
 
-                <Button variant="default" class="hidden lg:flex rounded-full w-28 px-6 transition-all duration-300">
-                    {{ t('contact') }}
+                <Button variant="default" class="hidden lg:flex w-24 rounded-full px-6 transition-all duration-300">
+                    {{ t('resume') }}
                 </Button>
 
             </div>

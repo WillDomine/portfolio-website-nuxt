@@ -12,7 +12,7 @@ export default defineCachedEventHandler(async () => {
 
   const query = `
     query ($searchQuery: String!) {
-      search(query: $searchQuery, type: REPOSITORY, first: 20) {
+      search(query: $searchQuery, type: REPOSITORY, first: 4) {
         nodes {
           ... on Repository {
             id

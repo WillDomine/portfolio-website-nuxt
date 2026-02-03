@@ -16,7 +16,7 @@ const experienceYears = calculateTimeSince("2025-05-15");
     </div>
 
     <div
-      class="mx-auto w-full max-w-360 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 2xl:gap-20 items-center">
+      class="w-full max-w-360 mx-auto px-[4vw] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 2xl:gap-20 items-center">
       <div
         class="flex flex-col gap-4 md:gap-6 2xl:gap-8 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
         <span
