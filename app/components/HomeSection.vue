@@ -45,7 +45,7 @@ const experienceYears = calculateTimeSince("2025-05-15");
             <Icon name="lucide:linkedin" class="size-5 md:size-6" />
             {{ $t("home_section.connect") }}
           </a>
-          <a href="https://www.github.com/WillDomine"
+          <a href="https://www.github.com/WillDomine" target="_blank"
             class="px-8 h-12 md:h-14 2xl:h-16 flex items-center justify-center gap-3 border border-border rounded-2xl font-semibold hover:bg-muted active:scale-95 transition-all">
             <Icon name="lucide:github" class="size-5 md:size-6" />
             {{ $t("home_section.github") }}
