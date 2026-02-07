@@ -1,11 +1,12 @@
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
+  compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+  
   app: {
     head: {
-      title: "Portfolio",
+      title: "Will Domine - Full Stack Developer",
       htmlAttrs: {
         lang: "en",
       },
@@ -15,27 +16,42 @@ export default defineNuxtConfig({
           content:
             "Professional Portfolio of Will Domine, a Full-Stack Developer specializing in Vue, Nuxt, and modern web technologies. Explore my latest projects, technical skills, and professional experience in software engineering.",
         },
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
       ],
     },
   },
+
   features: {
     inlineStyles: true,
   },
+
   routeRules: {
     "/": { prerender: true },
+    "/api/**": { cors: true, cache: { maxAge: 60 * 5 } },
   },
+
   css: ["~/assets/css/tailwind.css"],
+
   vite: {
     plugins: [tailwindcss()],
     build: {
       cssCodeSplit: true,
       chunkSizeWarningLimit: 500,
       sourcemap: false,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['vue', 'vue-router'],
+          },
+        },
+      },
     },
     css: {
       devSourcemap: false,
     },
   },
+
   i18n: {
     langDir: "locales",
     locales: [
@@ -44,14 +60,12 @@ export default defineNuxtConfig({
         iso: "en-US",
         file: "en.json",
         name: "English",
-        tag: "en",
       },
       {
         code: "ja",
         iso: "ja-JP",
         file: "ja.json",
         name: "日本語",
-        tag: "ja",
       },
     ],
     defaultLocale: "en",
@@ -60,24 +74,32 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_redirected",
       redirectOn: "root",
-      alwaysRedirect: true,
+      alwaysRedirect: false,
       fallbackLocale: "en",
     },
   },
+
   fonts: {
     families: [{ name: "Noto Sans JP", preload: true, weights: [400, 700] }],
   },
+
   icon: {
     clientBundle: {
       scan: true,
     },
   },
+
   runtimeConfig: {
-    githubToken: process.env.GITHUB_TOKEN,
+    githubToken: process.env.GITHUB_TOKEN || "",
   },
+
   nitro: {
-    preset: 'cloudflare-pages'
+    preset: "cloudflare-pages",
+    compressPublicAssets: true,
+    minify: true,
+    sourceMap: false,
   },
+
   modules: [
     "shadcn-nuxt",
     "@nuxtjs/i18n",
@@ -85,4 +107,10 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
   ],
-});
+
+  // Experimental features for better performance
+  experimental: {
+    payloadExtraction: false,
+    renderJsonPayloads: true,
+  },
+})
