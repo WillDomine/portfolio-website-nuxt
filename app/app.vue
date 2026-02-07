@@ -1,17 +1,41 @@
-<script setup>
-const { t, locale } = useI18n()
+<script setup lang="ts">
+const route = useRoute()
+const { t } = useI18n()
+
 useHead({
-  htmlAttrs: {
-    lang: computed(() => locale.value)
+  title: 'Will Domine - Full Stack Developer',
+  meta: [
+    { name: 'description', content: t('seo_description') }
+  ]
+})
+
+onMounted(() => {
+  if (route.hash) {
+    nextTick(() => {
+      const element = document.querySelector(route.hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
   }
 })
-useSeoMeta({
-  description: () => t('seo_description'),
-  ogDescription: () => t('seo_description')
-})
 </script>
+
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div class="relative">
+    <Navbar />
+    <main class="w-full">
+      <SectionWrapper id="home">
+        <HomeSection />
+      </SectionWrapper>
+      
+      <SectionWrapper id="about">
+        <AboutSection />
+      </SectionWrapper>
+      
+      <SectionWrapper id="projects">
+        <ProjectsSection />
+      </SectionWrapper>
+    </main>
+  </div>
 </template>
