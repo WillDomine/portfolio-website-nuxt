@@ -3,6 +3,7 @@ import Button from './ui/button/Button.vue';
 import { useIntervalFn } from '@vueuse/core';
 
 const router = useRouter(); 
+const route = useRoute();
 const { t, locale, setLocale } = useI18n();
 
 const navItems = [
@@ -12,6 +13,7 @@ const navItems = [
 ]
 
 const section = ref('home');
+const isManualScroll = ref(false)
 let observer: IntersectionObserver | null = null;
 
 //Starts the navigation observer
@@ -26,11 +28,21 @@ const startObserver = () => {
 
     //New Observer
     observer = new IntersectionObserver((entries) => {
+
+        if(isManualScroll.value) return;
+
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const newSection = entry.target.id;
                 section.value = newSection;
-                history.replaceState(null, '', `#${newSection}`)
+                if(route.hash !== `#${newSection}`) {
+                    router.replace(
+                        {
+                            ...route,
+                            hash: `#${newSection}`
+                        }
+                    ).catch(() => {})
+                }
             }
         });
     }, { 
@@ -73,6 +85,15 @@ onUnmounted(() => {
     if (observer) observer.disconnect();
     pause();
 });
+
+const handleNavClick = (name: string) => {
+    isManualScroll.value = true; // Disable observer
+    section.value = name; // Update UI immediately
+    
+    setTimeout(() => {
+        isManualScroll.value = false;
+    }, 1000);
+}
 </script>
 
 <template>
@@ -86,7 +107,7 @@ onUnmounted(() => {
                             ? 'bg-primary text-primary-foreground shadow-md'
                             : 'hover:bg-muted'
                     ]">
-                    <NuxtLink :to="item.href" :aria-label="t(item.name)" class="flex items-center justify-center">
+                    <NuxtLink :to="item.href" :aria-label="t(item.name)" @click="handleNavClick(item.name)" class="flex items-center justify-center">
                         <Icon :name="item.icon" mode="svg" />
                         <span class="hidden md:inline font-semibold">{{ t(item.name) }}</span>
                     </NuxtLink>
