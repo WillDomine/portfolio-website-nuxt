@@ -13,73 +13,48 @@ const navItems = [
 ]
 
 const section = ref('home');
-const isManualScroll = ref(false)
+const isManualScroll = ref(false);
 let observer: IntersectionObserver | null = null;
 
-//Starts the navigation observer
 const startObserver = () => {
-    //Removed old observer
     if (observer) observer.disconnect();
 
     const targets = navItems.map(item => document.getElementById(item.name));
-    const allFound = targets.every(el => el !== null);
+    if (!targets.every(el => el !== null)) return false; 
 
-    if (!allFound) return false; // Not ready yet
-
-    //New Observer
     observer = new IntersectionObserver((entries) => {
-
         if(isManualScroll.value) return;
 
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                const newSection = entry.target.id;
-                section.value = newSection;
-                if(route.hash !== `#${newSection}`) {
-                    router.replace(
-                        {
-                            ...route,
-                            hash: `#${newSection}`
-                        }
-                    ).catch(() => {})
-                }
+                section.value = entry.target.id;
             }
         });
     }, { 
         threshold: 0.5,
-        rootMargin: "-10% 0px -10% 0px"
+        rootMargin: "-20% 0px -20% 0px"
     });
 
-    //Observe elements
     targets.forEach(el => {
         if (el && observer) observer.observe(el);
     });
 
-    return true; // Successfully started
+    return true; 
 };
 
-//Retries incase failture
 const { pause, resume } = useIntervalFn(() => {
-    const success = startObserver();
-    if (success) {
-        pause();
-    }
+    if (startObserver()) pause();
 }, 100, { immediate: false });
 
 onMounted(() => {
     if (router.currentRoute.value.hash) {
         const hash = router.currentRoute.value.hash.replace('#', '');
-        if (navItems.some(i => i.name === hash)) {
-            section.value = hash;
-        }
+        if (navItems.some(i => i.name === hash)) section.value = hash;
     }
     resume();
 });
 
-//Watch language changes
-watch(locale, () => {
-    resume();
-});
+watch(locale, () => resume());
 
 onUnmounted(() => {
     if (observer) observer.disconnect();
@@ -87,12 +62,16 @@ onUnmounted(() => {
 });
 
 const handleNavClick = (name: string) => {
-    isManualScroll.value = true; // Disable observer
-    section.value = name; // Update UI immediately
+    isManualScroll.value = true;
+    section.value = name; 
     
-    setTimeout(() => {
-        isManualScroll.value = false;
-    }, 1000);
+    if (typeof history !== 'undefined') {
+        history.replaceState(null, '', `#${name}`);
+    }
+    
+    document.getElementById(name)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    setTimeout(() => isManualScroll.value = false, 1000);
 }
 </script>
 
