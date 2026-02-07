@@ -79,6 +79,6 @@ export default defineCachedEventHandler(async () => {
 }, {
   maxAge: 60 * 5, //5 Minutes
   swr: true,
-  name: "github-projects",
+  name: "github-projects-v2",
   getKey: () => "all"
 });

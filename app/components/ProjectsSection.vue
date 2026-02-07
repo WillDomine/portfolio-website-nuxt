@@ -3,7 +3,8 @@ const { locale } = useI18n()
 
 const { data: projects, pending, error } = useFetch('/api/projects', {
     lazy: true,
-    key:'projects-data'
+    key:'projects-data',
+    default: () => []
 })
 </script>
 
