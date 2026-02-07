@@ -59,7 +59,7 @@ export default defineCachedEventHandler(async () => {
 
     if (response.errors) {
       console.error("GitHub GraphQL Errors:", response.errors);
-      return [];
+      throw new Error("Github API Error")
     }
 
     const nodes = response?.data?.search?.nodes ?? [];
@@ -70,11 +70,14 @@ export default defineCachedEventHandler(async () => {
 
   } catch (err) {
     console.error("GitHub API FAILED:", err);
-    return [];
+    throw createError({
+      statusCode:500,
+      statusMessage: "Failed to fetch projects"
+    })
   }
 
 }, {
-  maxAge: 60 * 60, //1 hour
+  maxAge: 60 * 5, //5 Minutes
   swr: true,
   name: "github-projects",
   getKey: () => "all"

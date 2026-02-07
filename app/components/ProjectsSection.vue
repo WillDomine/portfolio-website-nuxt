@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 
-const { data: projects, pending, error } = await useFetch('/api/projects', {
+const { data: projects, pending, error } = useFetch('/api/projects', {
     lazy: true,
+    key:'projects-data'
 })
 </script>
 
